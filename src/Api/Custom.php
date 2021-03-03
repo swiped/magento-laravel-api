@@ -20,7 +20,11 @@ class Custom extends AbstractApi
      */
     public function __construct(string $endpoint, Magento $magento)
     {
-        $this->endpoint = '/'.rtrim(ltrim($endpoint, '/'), '/').'/';
+        $this->endpoint = '/';
+        
+        if ($endpoint != '') {
+            $this->endpoint = '/'.rtrim(ltrim($endpoint, '/'), '/').'/';
+        }
 
         parent::__construct($magento);
     }
